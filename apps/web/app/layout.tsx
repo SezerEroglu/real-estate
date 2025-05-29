@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
-import UIProvider from '@repo/ui/ui-provider';
+import ClientProviders from '@/app/client-providers';
 import './globals.css';
-
-const geist = Geist({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Turborepo',
@@ -16,10 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <UIProvider>
-      <html lang="en">
+    <ClientProviders>
+      <html lang="en" className="real-estate">
         <body>{children}</body>
       </html>
-    </UIProvider>
+    </ClientProviders>
   );
 }

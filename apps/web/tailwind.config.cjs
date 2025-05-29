@@ -1,3 +1,3 @@
 module.exports = {
-    ...require('@repo/tailwind-config/tailwind.config.cjs'),
+  ...require('@repo/tailwind-config/tailwind.config.cjs'),
 };
