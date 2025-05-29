@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
-import ClientProviders from '@/app/client-providers';
+import UIProvider from '@repo/ui/ui-provider';
 import './globals.css';
 
 const geist = Geist({ subsets: ['latin'] });
@@ -16,10 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClientProviders>
+    <UIProvider>
       <html lang="en">
         <body>{children}</body>
       </html>
-    </ClientProviders>
+    </UIProvider>
   );
 }
