@@ -1,3 +1,5 @@
+"use client"
+
 import { Button, extendVariants } from '@heroui/react';
 
 const EstateButton = extendVariants(Button, {

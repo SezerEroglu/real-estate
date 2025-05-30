@@ -1,52 +1,88 @@
 'use client';
 
-import { Button } from '@heroui/react';
-import EstateButton from '@repo/ui/estate-button';
+import EstateItem from '@repo/ui/estate-item';
+import HomePageHeroBanner from '@repo/ui/home-page-hero-banner';
+import EstateItem1 from '@/public/images/Estate-Item-1-Luxury-Apartment.jpg';
+import HeroBanner from '@/public/images/home-page-hero-banner.jpg';
 
-export default function HardcodedRippleTest() {
+export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-12 bg-primary-50 p-12">
-      <h1 className="mb-8 text-3xl font-bold">
-        Hardcoded EstateButton Ripple Test
-      </h1>
-
-      <div className="grid w-full max-w-4xl grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-        <div
-          className="relative flex flex-col items-center justify-center space-y-4 rounded-lg bg-white p-8 shadow-lg"
-          style={{ minHeight: '150px' }}
-        >
-          <span className="font-medium text-gray-700">Default</span>
-          <Button>Default Button 2</Button>
+    <div className="w-full">
+      <HomePageHeroBanner src={HeroBanner}>
+        <p className="rounded-xl bg-background/75 p-1 text-center font-sans text-3xl font-semibold text-[#1DD75B]">
+          Buy property fractions without any hassle.
+        </p>
+      </HomePageHeroBanner>
+      <div className="my-4 grid grid-cols-2 gap-y-4">
+        <div className="col-span-1 flex items-center justify-center">
+          <EstateItem
+            estate={{
+              id: '123',
+              properties: {
+                building: { area: '1000 ft', bathrooms: 5, bedrooms: 2 },
+                location: 'New York, NY',
+                name: 'Luxury Apartment',
+                pricing: {
+                  totalValue: 500000,
+                  sharePercentage: 0.5,
+                },
+                images: [EstateItem1],
+              },
+            }}
+          ></EstateItem>
         </div>
-
-        <div
-          className="relative flex flex-col items-center justify-center space-y-4 rounded-lg bg-white p-8 shadow-lg"
-          style={{ minHeight: '150px' }}
-        >
-          <span className="font-medium text-gray-700">Estate Variant</span>
-          <EstateButton color="estate" size="estate">
-            Estate Button
-          </EstateButton>
+        <div className="col-span-1 flex items-center justify-center">
+          <EstateItem
+            estate={{
+              id: '123',
+              properties: {
+                building: { area: '1000 ft', bathrooms: 5, bedrooms: 2 },
+                location: 'New York, NY',
+                name: 'Luxury Apartment',
+                pricing: {
+                  totalValue: 500000,
+                  sharePercentage: 0.5,
+                },
+                images: [EstateItem1],
+              },
+            }}
+          ></EstateItem>
         </div>
-
-        <div
-          className="relative flex flex-col items-center justify-center space-y-4 rounded-lg bg-white p-8 shadow-lg"
-          style={{ minHeight: '150px' }}
-        >
-          <span className="font-medium text-gray-700">Small Size</span>
-          <EstateButton size="sm" color="primary">
-            Small Button
-          </EstateButton>
+        <div className="col-span-1 flex items-center justify-center">
+          <EstateItem
+            estate={{
+              id: '123',
+              properties: {
+                building: { area: '1000 ft', bathrooms: 5, bedrooms: 2 },
+                location: 'New York, NY',
+                name: 'Luxury Apartment',
+                pricing: {
+                  totalValue: 500000,
+                  sharePercentage: 0.5,
+                },
+                images: [EstateItem1],
+              },
+            }}
+          ></EstateItem>
         </div>
-
-        <div
-          className="relative flex flex-col items-center justify-center space-y-4 rounded-lg bg-white p-8 shadow-lg"
-          style={{ minHeight: '150px' }}
-        >
-          <span className="font-medium text-gray-700">Large Size</span>
-          <EstateButton size="lg">Large Button</EstateButton>
+        <div className="col-span-1 flex items-center justify-center">
+          <EstateItem
+            estate={{
+              id: '123',
+              properties: {
+                building: { area: '1000 ft', bathrooms: 5, bedrooms: 2 },
+                location: 'New York, NY',
+                name: 'Luxury Apartment',
+                pricing: {
+                  totalValue: 500000,
+                  sharePercentage: 0.5,
+                },
+                images: [EstateItem1],
+              },
+            }}
+          ></EstateItem>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

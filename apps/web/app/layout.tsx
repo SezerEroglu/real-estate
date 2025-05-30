@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ClientProviders from '@/app/client-providers';
+import { Navbar } from '@/components/Navbar';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -14,8 +15,16 @@ export default function RootLayout({
 }) {
   return (
     <ClientProviders>
-      <html lang="en" className="real-estate">
-        <body>{children}</body>
+      <html
+        lang="en"
+        className="bg-background text-base text-gray-900 antialiased real-estate"
+      >
+        <body className="flex min-h-screen flex-col">
+          <main className="flex grow flex-col mb-16">
+            {children}
+            <Navbar />
+          </main>
+        </body>
       </html>
     </ClientProviders>
   );

@@ -12,6 +12,7 @@ const nextConfig = {
     includePaths: ['node_modules', 'styles'],
   },
   env: {},
+  allowedDevOrigins: ['192.168.1.138'],
   skipTrailingSlashRedirect: true,
 };
 
