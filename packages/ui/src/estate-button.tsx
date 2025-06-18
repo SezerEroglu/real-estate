@@ -1,19 +1,15 @@
-"use client"
+'use client';
 
 import { Button, extendVariants } from '@heroui/react';
 
 const EstateButton = extendVariants(Button, {
   variants: {
+    variant: {
+      ghost: 'text-foreground',
+    },
     color: {
-      estate: 'bg-primary-500 text-white hover:bg-primary-600',
+      foreground: 'text-foreground',
     },
-    size: {
-      estate: 'px-8 py-2 text-sm md:w-auto rounded-md',
-    },
-  },
-  defaultVariants: {
-    color: 'estate',
-    size: 'estate',
   },
 });
 EstateButton.displayName = 'EstateButton';

@@ -1,86 +1,80 @@
-'use client';
-
-import EstateItem from '@repo/ui/estate-item';
-import HomePageHeroBanner from '@repo/ui/home-page-hero-banner';
-import EstateItem1 from '@/public/images/Estate-Item-1-Luxury-Apartment.jpg';
-import HeroBanner from '@/public/images/home-page-hero-banner.jpg';
+import { HeroSlider } from '@repo/ui/hero-slider';
+import { HeroSliderItem, HeroSliderItemProps } from '@repo/ui/hero-slider-item';
+import HomePageHeroBanner, {
+  type HomePageHeroBannerProps,
+} from '@repo/ui/home-page-hero-banner';
+import {
+  heroImages,
+  heroSliderImages,
+  partnerImages,
+} from '@/public/images/images';
 
 export default function Page() {
+  const heroBannerProps: HomePageHeroBannerProps = {
+    properties: {
+      actualPrice: 10,
+      title: 'Hero Banner Title',
+      subtitle: 'Hero Banner Subtitle',
+      regularPrice: 15,
+      partner: {
+        name: 'Partner Name',
+        image: { ...partnerImages.fallback },
+      },
+      srcs: {
+        desktopHeroImage: { ...heroImages.desktop },
+        tabletHeroImage: { ...heroImages.tablet },
+        mobileHeroImage: { ...heroImages.mobile },
+        fallbackHeroImage: { ...heroImages.fallback },
+      },
+    },
+    targetUrl: '/item/item1',
+  };
+
+  const heroSliderProps: HeroSliderItemProps = {
+    properties: {
+      actualPrice: 10,
+      title: 'Hero Slider Title',
+      subtitle: 'Hero Slider Subtitle',
+      regularPrice: 15,
+      partner: {
+        name: 'Partner Name',
+        image: { ...partnerImages.fallback },
+      },
+      srcs: {
+        desktopImage: { ...heroSliderImages.desktop },
+        laptopImage: { ...heroSliderImages.laptop },
+        tabletImage: { ...heroSliderImages.tablet },
+        mobileImage: { ...heroSliderImages.mobile },
+        fallbackImage: { ...heroSliderImages.fallback },
+      },
+    },
+    targetUrl: '/item/item1',
+  };
+
   return (
-    <div className="w-full">
-      <HomePageHeroBanner src={HeroBanner}>
-        <p className="rounded-xl bg-background/75 p-1 text-center font-sans text-3xl font-semibold text-[#1DD75B]">
-          Buy property fractions without any hassle.
-        </p>
-      </HomePageHeroBanner>
-      <div className="my-4 grid grid-cols-2 gap-y-4">
-        <div className="col-span-1 flex items-center justify-center">
-          <EstateItem
-            estate={{
-              id: '123',
-              properties: {
-                building: { area: '1000 ft', bathrooms: 5, bedrooms: 2 },
-                location: 'New York, NY',
-                name: 'Luxury Apartment',
-                pricing: {
-                  totalValue: 500000,
-                  sharePercentage: 0.5,
-                },
-                images: [EstateItem1],
-              },
-            }}
-          ></EstateItem>
+    <div className="mx-auto w-full">
+      <div className="grid-cols-12">
+        <div className="container col-span-full mx-auto mt-10 px-4">
+          <HomePageHeroBanner
+            properties={heroBannerProps.properties}
+            targetUrl={heroBannerProps.targetUrl}
+          />
         </div>
-        <div className="col-span-1 flex items-center justify-center">
-          <EstateItem
-            estate={{
-              id: '123',
-              properties: {
-                building: { area: '1000 ft', bathrooms: 5, bedrooms: 2 },
-                location: 'New York, NY',
-                name: 'Luxury Apartment',
-                pricing: {
-                  totalValue: 500000,
-                  sharePercentage: 0.5,
-                },
-                images: [EstateItem1],
-              },
-            }}
-          ></EstateItem>
-        </div>
-        <div className="col-span-1 flex items-center justify-center">
-          <EstateItem
-            estate={{
-              id: '123',
-              properties: {
-                building: { area: '1000 ft', bathrooms: 5, bedrooms: 2 },
-                location: 'New York, NY',
-                name: 'Luxury Apartment',
-                pricing: {
-                  totalValue: 500000,
-                  sharePercentage: 0.5,
-                },
-                images: [EstateItem1],
-              },
-            }}
-          ></EstateItem>
-        </div>
-        <div className="col-span-1 flex items-center justify-center">
-          <EstateItem
-            estate={{
-              id: '123',
-              properties: {
-                building: { area: '1000 ft', bathrooms: 5, bedrooms: 2 },
-                location: 'New York, NY',
-                name: 'Luxury Apartment',
-                pricing: {
-                  totalValue: 500000,
-                  sharePercentage: 0.5,
-                },
-                images: [EstateItem1],
-              },
-            }}
-          ></EstateItem>
+        <div className="container col-span-full mx-auto mt-10 px-4">
+          <HeroSlider title="Hero Slider">
+            <HeroSliderItem
+              properties={heroSliderProps.properties}
+              targetUrl={heroBannerProps.targetUrl}
+            ></HeroSliderItem>
+            <HeroSliderItem
+              properties={heroSliderProps.properties}
+              targetUrl={heroBannerProps.targetUrl}
+            ></HeroSliderItem>
+            <HeroSliderItem
+              properties={heroSliderProps.properties}
+              targetUrl={heroBannerProps.targetUrl}
+            ></HeroSliderItem>
+          </HeroSlider>
         </div>
       </div>
     </div>

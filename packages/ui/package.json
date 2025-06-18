@@ -10,7 +10,8 @@
   ],
   "exports": {
     "./styles.css": "./src/styles.css",
-    "./*": "./src/*.tsx"
+    "./*": "./src/*.tsx",
+    "./types/*": "./src/types/*.ts"
   },
   "prettier": "@repo/prettier-config/prettier.config.cjs",
   "license": "MIT",
@@ -44,5 +45,10 @@
     "react-dom": "^19.1.0",
     "tailwindcss": "^3.4.17",
     "typescript": "5.8.2"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.4",
+    "next-themes": "^0.4.6",
+    "react-hot-toast": "^2.5.2"
   }
 }

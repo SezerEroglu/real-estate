@@ -19,7 +19,7 @@ export default function EstateItem({
   };
 }) {
   return (
-    <div className="estate-item relative h-80 max-w-[45vw] overflow-hidden rounded-lg border border-[#393D47] bg-[#19191F] shadow-md">
+    <div className="estate-item relative h-80 max-w-[45vw] overflow-hidden rounded-lg border border-primary-300 bg-foreground shadow-md">
       <div className="relative h-1/2">
         <NextImage
           className="h-full w-full max-w-full object-cover"
@@ -27,7 +27,7 @@ export default function EstateItem({
           alt={estate.properties.name}
         />
       </div>
-      <div className="whitespace-nowrap p-4 text-white">
+      <div className="whitespace-nowrap p-4 text-primary">
         <OverflowAnimText text={estate.properties.name} />
         <OverflowAnimText text={estate.properties.location} />
         <OverflowAnimText text="short" />

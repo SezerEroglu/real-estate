@@ -1,2 +1,18 @@
 @import '@repo/tailwind-config/shared-styles.css';
 @import '@repo/ui/styles.css';
+
+/* Default navbar height */
+:root {
+  --navbar-height-injected: 96px;
+}
+
+.navbar-offset {
+  margin-top: var(--navbar-height-injected);
+}
+
+/* Override on small screens */
+@media (max-width: 768px) {
+  :root {
+    --navbar-height-injected: 152px;
+  }
+}

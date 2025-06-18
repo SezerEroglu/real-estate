@@ -1,0 +1,23 @@
+'use client';
+
+import type { ReactNode } from 'react';
+import CartEmpty from '@/components/CartEmpty/cart-empty';
+import CartLoading from '@/components/CartLoading/cart-loading';
+import { useCart } from '@/hooks/UseCart/use-cart';
+
+export interface CartLayoutProps {
+  children: ReactNode;
+}
+export default function Layout({ children }: CartLayoutProps) {
+  const { cartContext } = useCart();
+
+  if (!cartContext.cart) {
+    return <CartLoading />;
+  }
+
+  if (!cartContext.cart.items?.length || cartContext.cart.items?.length < 0) {
+    return <CartEmpty />;
+  }
+
+  return <div className="container mx-auto p-6 px-4 md:px-6">{children}</div>;
+}
