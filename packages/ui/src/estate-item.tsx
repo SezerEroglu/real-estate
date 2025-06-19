@@ -1,5 +1,5 @@
 import NextImage, { StaticImageData } from 'next/image';
-import OverflowAnimText from './overflow-anim-text';
+import OverflowAnimText from './effects/overflow-anim-text';
 
 export default function EstateItem({
   estate,

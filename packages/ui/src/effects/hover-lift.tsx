@@ -1,7 +1,7 @@
-interface HoverLiftProps {
+export type HoverLiftProps = {
   children: React.ReactNode;
   className?: string;
-}
+};
 
 export default function HoverLift({
   children,

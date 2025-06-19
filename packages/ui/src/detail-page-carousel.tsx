@@ -32,14 +32,17 @@ export default function DetailPageCarousel({
               <button
                 key={index}
                 type="button"
-                className={cn(
-                  'w-10 rounded-full lg:w-20',
-                  itemStart === index
-                    ? 'h-1.5 bg-foreground'
-                    : 'h-1 bg-foreground-100',
-                )}
+                className="py-3"
                 onClick={() => setItemStart(index)}
-              />
+              >
+                <div
+                  className={`w-10 rounded-full lg:w-20 ${
+                    itemStart === index
+                      ? 'h-1.5 bg-foreground'
+                      : 'h-1 bg-foreground-100'
+                  }`}
+                ></div>
+              </button>
             ))}
         </div>
       </div>

@@ -5,11 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { cn, Divider } from '@heroui/react';
 import DetailPageCarousel from '@repo/ui/detail-page-carousel';
+import FadeInOnScroll from '@repo/ui/effects/fade-in-on-scroll';
 import { HeartFavorite } from '@repo/ui/heart-favourite';
 import { Price } from '@repo/ui/price';
 import AddToCart from '@/components/AddToCart/add-to-cart';
 import DetailsPerkCard from '@/components/DetailPerkCard/detail-perk-card';
-import FadeInOnScroll from '@/components/FadeInOnScroll/fade-in-on-scroll';
 import ChevronRightSvg from '@/components/svg/ChevronRightSvg/chevron-right-svg';
 import { ItemModel } from '@/types/ItemModel/item-model';
 

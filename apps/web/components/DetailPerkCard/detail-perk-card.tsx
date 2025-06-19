@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { cn } from '@heroui/react';
+import HoverLift from '@repo/ui/effects/hover-lift';
 import BuildingSVG from '@/components/svg/Building/building';
 import ClockSVG from '@/components/svg/Clock/clock';
 import MoneySVG from '@/components/svg/Money/clock';
@@ -44,9 +45,11 @@ export default function DetailsPerkCard({ perk }: DetailsPerkCardProps) {
   };
 
   return (
-    <div className="mx-auto inline-flex w-full items-center justify-center gap-2 rounded-lg border border-divider/50 bg-primary px-6 py-4 text-xl font-medium text-primary-foreground md:mx-0 md:w-auto">
-      <span>{perkIconMap[perk]}</span>
-      <span className="text-xs md:text-xl">{perkTextMap[perk]}</span>
-    </div>
+    <HoverLift>
+      <div className="mx-auto inline-flex w-full items-center justify-center gap-2 rounded-lg border border-divider/50 bg-primary px-6 py-4 text-xl font-medium text-primary-foreground md:mx-0 md:w-auto">
+        <span>{perkIconMap[perk]}</span>
+        <span className="text-xs md:text-xl">{perkTextMap[perk]}</span>
+      </div>
+    </HoverLift>
   );
 }

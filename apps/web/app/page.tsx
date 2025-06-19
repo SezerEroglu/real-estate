@@ -6,6 +6,7 @@ import HomePageHeroBanner, {
 import estateItem1 from '@/app/consts/Items/estate-item-1';
 import estateItem2 from '@/app/consts/Items/estate-item-2';
 import estateItem3 from '@/app/consts/Items/estate-item-3';
+import NewsletterBlock from '@/components/NewsletterBlock/newsletter-block';
 import { mapItemToHomePageHeroBannerProps } from '@/utils/ModelUtils/item-model-to-hero-banner';
 import { mapItemToHeroSliderItemProps } from '@/utils/ModelUtils/item-model-to-hero-slider-item';
 
@@ -37,6 +38,9 @@ export default function Page() {
               ></HeroSliderItem>
             ))}
           </HeroSlider>
+        </div>
+        <div className="container col-span-full mx-auto mt-10 px-4">
+          <NewsletterBlock />
         </div>
       </div>
     </div>
