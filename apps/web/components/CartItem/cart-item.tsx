@@ -29,10 +29,10 @@ export default function CartItem({ cartItem }: CartItemProps) {
     async (event: React.ChangeEvent<HTMLSelectElement>) => {
       setChangingQuantity(true);
       const newQuantity = parseInt(event.target.value, 10);
-      if (!!newQuantity) {
+      if (newQuantity) {
         try {
           await updateCartItem(cartItem, newQuantity);
-        } catch (e) {
+        } catch {
           toast({
             title: 'Fehler!',
             description: 'Der Warenkorb konnte nicht aktualisiert werden.',
@@ -42,35 +42,35 @@ export default function CartItem({ cartItem }: CartItemProps) {
       }
       setChangingQuantity(false);
     },
-    [cartItem.id, updateCartItem],
+    [cartItem, updateCartItem],
   );
 
   const increment = useCallback(async () => {
     setChangingQuantity(true);
     try {
       await updateCartItem(cartItem, quantity + 1);
-    } catch (e) {
+    } catch {
       toast({
-        title: 'Fehler!',
-        description: 'Der Warenkorb konnte nicht aktualisiert werden.',
+        title: 'Error',
+        description: 'The shopping cart could not be updated.',
       });
     }
     setChangingQuantity(false);
-  }, [cartItem.id, quantity, updateCartItem]);
+  }, [cartItem, quantity, updateCartItem]);
 
   const decrement = useCallback(async () => {
     setChangingQuantity(true);
     const newQuantity = Math.max(1, quantity - 1);
     try {
       await updateCartItem(cartItem, newQuantity);
-    } catch (e) {
+    } catch {
       toast({
-        title: 'Fehler!',
-        description: 'Der Warenkorb konnte nicht aktualisiert werden.',
+        title: 'Error',
+        description: 'The shopping cart could not be updated.',
       });
     }
     setChangingQuantity(false);
-  }, [cartItem.id, quantity, updateCartItem]);
+  }, [cartItem, quantity, updateCartItem]);
 
   const options = Array.from(
     { length: Math.min(maxOrderQuantity, 30) },
@@ -84,17 +84,17 @@ export default function CartItem({ cartItem }: CartItemProps) {
     setIsRemovingDeal(true);
     await removeCartItem(cartItem.id);
     setIsRemovingDeal(false);
-  }, [cartItem.id, removeCartItem]);
+  }, [cartItem, removeCartItem]);
 
   return (
     <div
-      className="flex flex-row items-center gap-4 py-6"
+      className="grid grid-cols-1 items-center gap-4 py-6 md:grid-cols-4"
       id={'cart-item' + id}
       data-supplier-name={partner.name || ''}
       data-deal-name={display.name || ''}
     >
       {!partner.image ? (
-        <div className="flex h-24 w-24 animate-pulse items-center justify-center overflow-hidden rounded-[20px]">
+        <div className="col-span-1 flex h-24 w-24 animate-pulse items-center justify-center overflow-hidden rounded-[20px]">
           <div className="h-[88px] w-[88px]" />
         </div>
       ) : (
@@ -113,7 +113,7 @@ export default function CartItem({ cartItem }: CartItemProps) {
           />
         </div>
       )}
-      <div className={cn('flex grow flex-col justify-center gap-2')}>
+      <div className={cn('col-span-1 flex grow flex-col justify-center gap-2')}>
         <h2 className="flex-grow text-lg font-medium">{display.name}</h2>
         <p className="text-sm">Total: {quantity}</p>
         <button
@@ -129,14 +129,14 @@ export default function CartItem({ cartItem }: CartItemProps) {
           <span className="underline">{'Entfernen'}</span>
         </button>
       </div>
-      <div className="hidden md:flex md:flex-row md:gap-4">
-        <div className="flex flex-col items-end">
-          {!!pricing.regularPrice &&
+      <div className="col-span-1 hidden justify-end md:col-span-2 md:flex md:flex-row md:gap-4">
+        <div className="flex shrink flex-col items-end">
+          {/* {!!pricing.regularPrice &&
             pricing.regularPrice > pricing.actualPrice && (
               <div className="line-through opacity-75">
                 {formatCurrency(pricing.regularPrice, true)}
               </div>
-            )}
+            )} */}
           {pricing.actualPrice && (
             <div className="text-3xl font-bold">
               {formatCurrency(pricing.actualPrice, true)}
@@ -154,7 +154,7 @@ export default function CartItem({ cartItem }: CartItemProps) {
           >
             -
           </EstateButton>
-          <div className="min-w-8 text-center text-3xl font-bold text-content2-foreground">
+          <div className="text-secondary2-foreground min-w-8 text-center text-3xl font-bold">
             {quantity}
           </div>
           <EstateButton
@@ -169,7 +169,7 @@ export default function CartItem({ cartItem }: CartItemProps) {
           </EstateButton>
         </div>
       </div>
-      <div className="flex flex-col gap-4 md:hidden">
+      <div className="col-span-1 flex flex-col gap-4 md:hidden">
         <div className="flex flex-row items-center gap-2">
           <EstateSelect
             selectedKeys={[selectedQuantity.toString()]}
@@ -183,12 +183,12 @@ export default function CartItem({ cartItem }: CartItemProps) {
           </EstateSelect>
         </div>
         <div className="flex flex-col items-end">
-          {!!pricing.regularPrice &&
+          {/* {!!pricing.regularPrice &&
             pricing.regularPrice > pricing.actualPrice && (
               <div className="line-through opacity-75">
                 {formatCurrency(pricing.regularPrice, true)}
               </div>
-            )}
+            )} */}
           {!!pricing.actualPrice && (
             <div className="text-3xl font-bold">
               {formatCurrency(pricing.actualPrice, true)}

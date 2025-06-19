@@ -4,7 +4,6 @@ import EstateButton from '@repo/ui/estate-button';
 import IconCart from '@/components/svg/CartIcon/icon-cart';
 
 export default function HeaderCartButton() {
-  const ctaText = 'zum warenkorb';
   const targetUrl = '/cart';
   return (
     <EstateButton

@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  real-estate-fe:
+  estate-demo-fe:
     build:
       context: .
       dockerfile: Dockerfile
-    image: real-estate-fe:latest
+    image: estate-demo:latest
     restart: unless-stopped
     ports:
       - 4420:3000

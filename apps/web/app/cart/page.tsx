@@ -10,13 +10,6 @@ import { PaymentIconVisa } from '@/components/svg/PaymentIconVisa/payment-icon-v
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
-const pageInfo = {
-  pageName: 'aldi-deals-cart',
-  pageType: 'aldi-sued-ci-template',
-  primaryCategory: 'ALDI SUED CI',
-  subCategory: 'aldi-deals',
-  subSubCategory: 'checkout-checkout',
-};
 
 export default function Page() {
   return (
@@ -26,14 +19,14 @@ export default function Page() {
       </div>
       <div className="mt-20 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-10">
         <div className="col-span-full flex flex-col gap-10 lg:col-span-8">
-          <div className="rounded-[20px] bg-content2 p-10 text-content2-foreground">
+          <div className="bg-secondary2 text-secondary2-foreground rounded-[20px] p-10">
             <h1 className="border-b pb-4 text-3xl font-bold">Your Cart</h1>
             <div>
               <CartItemList />
             </div>
           </div>
 
-          <div className="hidden rounded-[20px] bg-content2 p-10 text-content2-foreground lg:flex lg:flex-col lg:items-center lg:gap-5">
+          <div className="bg-secondary2 text-secondary2-foreground hidden rounded-[20px] p-10 lg:flex lg:flex-col lg:items-center lg:gap-5">
             <h2 className="text-lg font-medium">
               We support the following payment methods
             </h2>
@@ -51,7 +44,7 @@ export default function Page() {
           <div className="w-full">
             <CartCostOverview />
           </div>
-          <div className="hidden rounded-[20px] bg-content2 p-10 text-content2-foreground md:flex md:flex-col md:items-center md:gap-5 lg:hidden">
+          <div className="bg-secondary2 text-secondary2-foreground hidden rounded-[20px] p-10 md:flex md:flex-col md:items-center md:gap-5 lg:hidden">
             <h2 className="text-lg font-medium">
               We support the following payment methods
             </h2>

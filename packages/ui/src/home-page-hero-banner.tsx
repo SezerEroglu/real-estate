@@ -54,7 +54,7 @@ export default function HomePageHeroBanner({
     <div>
       <Link
         className="relative block aspect-[328/480] overflow-hidden rounded-2xl transition-opacity hover:opacity-95 md:aspect-video md:rounded-3xl xl:rounded-[40px]"
-        href={targetUrl}
+        href={'/item/' + targetUrl}
       >
         {/* Background image */}
         {desktopHeroImage?.src ? (
@@ -141,7 +141,7 @@ export default function HomePageHeroBanner({
         )}
 
         {/* Overlay gradient */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-black/75" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/50 to-black/75" />
 
         {/* Content container */}
         <div className="absolute bottom-0 left-0 right-0 z-20 flex w-full flex-col p-4 text-primary-foreground md:p-10 xl:p-20">
@@ -207,7 +207,7 @@ export default function HomePageHeroBanner({
               size="sm"
               className="h-14 text-lg font-semibold md:h-16 md:px-8 md:text-xl 2xl:h-20 2xl:text-2xl"
             >
-              {'Jetzt Deal sichern'}
+              View Details
             </EstateButton>
 
             {/* Desktop Partner Image */}
@@ -391,7 +391,7 @@ export default function HomePageHeroBanner({
   //             size="sm"
   //             className="h-14 text-lg font-semibold md:h-16 md:px-8 md:text-xl 2xl:h-20 2xl:text-2xl"
   //           >
-  //             {'Jetzt Deal sichern'}
+  //             View Details
   //           </EstateButton>
   //           <div className="hidden md:inline-block">
   //             <HeroBannerPartner

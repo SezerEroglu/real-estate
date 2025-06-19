@@ -23,7 +23,7 @@ export default function HeaderCartSection({
         badge: itemQuantity ? 'w-6 h-6 text-sm' : 'hidden',
       }}
       color="primary"
-      placement="bottom-right"
+      placement="bottom-left"
       suppressHydrationWarning={true}
     >
       {children}

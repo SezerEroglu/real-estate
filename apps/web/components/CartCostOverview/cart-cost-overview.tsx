@@ -20,12 +20,12 @@ export default function CartCostOverview() {
       sum + item.properties.pricing.regularPrice * item.properties.quantity,
     0,
   );
-  const saving = totalRegular - total;
+  // const saving = totalRegular - total;
 
   return (
-    <div className="rounded-[20px] bg-content2 p-10 text-content2-foreground">
+    <div className="bg-secondary2 text-secondary2-foreground rounded-[20px] p-10">
       <h1 className="mb-6 border-b border-divider pb-6 text-3xl font-bold">
-        Overview
+        Investment Overview
       </h1>
       <div className="mb-6 flex flex-col gap-4 border-b border-divider pb-6">
         <div className="flex flex-row justify-between">

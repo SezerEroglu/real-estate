@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { ToasterProvider } from '@repo/ui/toaster-provider';
 import Header from '@/components/Header/header';
+import ParallaxBackground from '@/components/ParallaxBackground/parallax-background';
 import ClientProviders from '@/providers/ClientProviders/client-providers';
+import HotjarProvider from '@/providers/HotjarProvider/hotjar-provider';
 import ServerProviders from '@/providers/ServerProviders/server-providers';
 import './globals.css';
 
@@ -25,7 +27,10 @@ export default function RootLayout({
         <ClientProviders>
           <ServerProviders>
             <ToasterProvider />
+            <HotjarProvider />
             <main className="mb-16 flex grow flex-col">
+              {/* <ParallaxBackground /> */}
+              <ParallaxBackground />
               <Header />
               {children}
             </main>

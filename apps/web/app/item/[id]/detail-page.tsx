@@ -8,7 +8,8 @@ import DetailPageCarousel from '@repo/ui/detail-page-carousel';
 import { HeartFavorite } from '@repo/ui/heart-favourite';
 import { Price } from '@repo/ui/price';
 import AddToCart from '@/components/AddToCart/add-to-cart';
-import { DetailPerkCard } from '@/components/DetailPerkCard/index';
+import DetailsPerkCard from '@/components/DetailPerkCard/detail-perk-card';
+import FadeInOnScroll from '@/components/FadeInOnScroll/fade-in-on-scroll';
 import ChevronRightSvg from '@/components/svg/ChevronRightSvg/chevron-right-svg';
 import { ItemModel } from '@/types/ItemModel/item-model';
 
@@ -22,21 +23,22 @@ export default function DetailPage({ item, children }: DetailPageProps) {
     srcs,
     partner,
     title,
-    subtitle,
+    // subtitle,
     regularPrice,
     actualPrice,
     contents,
     description,
-    maxCustomerQuantity,
+    // maxCustomerQuantity,
+    perks,
   } = item.properties;
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  const maxOrderQuantity = (() => {
-    if (maxCustomerQuantity == undefined) return 999;
-    if (maxCustomerQuantity > 0) return maxCustomerQuantity;
-    return 999;
-  })();
+  // const maxOrderQuantity = (() => {
+  //   if (maxCustomerQuantity == undefined) return 999;
+  //   if (maxCustomerQuantity > 0) return maxCustomerQuantity;
+  //   return 999;
+  // })();
 
   return (
     <div>
@@ -60,26 +62,43 @@ export default function DetailPage({ item, children }: DetailPageProps) {
                   <div
                     key={index}
                     className={cn(
-                      'relative overflow-hidden rounded-lg lg:rounded-[20px]',
+                      'bg-primary2 relative flex aspect-video h-auto min-h-[160px] w-full items-center justify-center overflow-hidden rounded-[20px] bg-center object-cover backdrop-blur lg:min-h-[480px] lg:rounded-[20px]',
                       activeImageIndex === index && 'border-secondary',
                     )}
                     onClick={() => setActiveImageIndex(index)}
                   >
                     <div className="absolute left-0 right-0 top-0 flex flex-row-reverse justify-between p-6"></div>
                     {image.src && (
-                      <Image
-                        src={image.src}
-                        placeholder="blur"
-                        blurDataURL={image.blurDataURL}
-                        className={cn(
-                          'block aspect-video h-auto min-h-[160px] w-full overflow-hidden rounded-[20px] bg-center object-cover lg:min-h-[480px]',
-                        )}
-                        alt="Product Image"
-                        quality={80}
-                        width={1200}
-                        height={1200}
-                        //sizes="(max-width: 767px) 100vw, (min-width: 768px) and (max-width: 1023px) 50vw, (min-width: 1024px) 50vw"
-                      />
+                      <>
+                        <Image
+                          src={image.src}
+                          placeholder="blur"
+                          blurDataURL={image.blurDataURL}
+                          // className={cn(
+                          //   'block aspect-video h-auto min-h-[160px] w-full overflow-hidden rounded-[20px] bg-center object-cover lg:min-h-[480px]',
+                          // )}
+                          className="absolute inset-0 h-full w-full scale-110 object-cover blur-xl"
+                          alt="Product Image"
+                          quality={80}
+                          width={1200}
+                          height={1200}
+                          //sizes="(max-width: 767px) 100vw, (min-width: 768px) and (max-width: 1023px) 50vw, (min-width: 1024px) 50vw"
+                        />
+                        <Image
+                          src={image.src}
+                          placeholder="blur"
+                          blurDataURL={image.blurDataURL}
+                          // className={cn(
+                          //   'block aspect-video h-auto min-h-[160px] w-full overflow-hidden rounded-[20px] bg-center object-cover lg:min-h-[480px]',
+                          // )}
+                          className="relative z-10 h-full w-full object-contain"
+                          alt="Product Image"
+                          quality={80}
+                          width={1200}
+                          height={1200}
+                          //sizes="(max-width: 767px) 100vw, (min-width: 768px) and (max-width: 1023px) 50vw, (min-width: 1024px) 50vw"
+                        />
+                      </>
                     )}
                   </div>
                 );
@@ -88,35 +107,30 @@ export default function DetailPage({ item, children }: DetailPageProps) {
             <div className="hidden gap-y-10 lg:flex lg:flex-col">
               <Divider />
               <div className="grid grid-cols-2 justify-items-center gap-4 md:flex md:flex-row md:flex-wrap">
-                <DetailPerkCard perk="greatOffer" />
-                <DetailPerkCard perk="outdoorActivity" />
-                <DetailPerkCard perk="perfectAsGift" />
-                <DetailPerkCard perk="forFamily" />
-                <DetailPerkCard perk="ourRecommendation" />
+                {perks.map((perk) => (
+                  <DetailsPerkCard key={perk.perk} perk={perk.perk} />
+                ))}
               </div>
               <Divider />
               {contents.map(({ title, body }, index) => (
-                <div
-                  key={index + 'dt'}
-                  className="flex flex-col space-y-6 rounded-lg border border-divider/10 bg-content2 p-4 md:p-10 lg:rounded-[20px]"
-                >
-                  <h1 className="text-lg font-bold text-content1-foreground md:text-5xl">
-                    {title}
-                  </h1>
-                  <div
-                    className="richtext-field whitespace-pre-line text-lg text-content1-foreground md:text-2xl"
-                    // dangerouslySetInnerHTML={{
-                    //   __html: { body },
-                    // }}
-                  >
-                    <p>{body}</p>
+                <FadeInOnScroll key={index + 'dt'}>
+                  <div className="bg-secondary1 text-secondary1-foreground flex flex-col space-y-6 rounded-lg border border-divider/5 p-4 shadow-none transition-transform hover:-translate-y-2 hover:shadow-lg hover:shadow-primary-200 md:p-10 lg:rounded-[20px]">
+                    <h1 className="text-md font-bold md:text-xl">{title}</h1>
+                    <div
+                      className="richtext-field whitespace-pre-line text-sm md:text-lg"
+                      // dangerouslySetInnerHTML={{
+                      //   __html: { body },
+                      // }}
+                    >
+                      <p>{body}</p>
+                    </div>
                   </div>
-                </div>
+                </FadeInOnScroll>
               ))}
             </div>
           </div>
           <div className="col-span-12 flex h-min flex-col gap-4 lg:sticky lg:right-0 lg:top-36 2xl:col-span-5">
-            <div className="flex grow flex-col gap-y-6 rounded-[20px] bg-content2 p-10 text-content2-foreground">
+            <div className="bg-primary2 text-primary2-foreground flex grow flex-col gap-y-6 rounded-[20px] border border-divider/10 p-10">
               <div className="flex flex-row items-center justify-between gap-6">
                 <h1 className="text-xl font-bold md:text-2xl">{title}</h1>
                 <div className="hidden md:block">
@@ -159,7 +173,7 @@ export default function DetailPage({ item, children }: DetailPageProps) {
                 <AddToCart item={item} />
               </div>
             </div>
-            <div className="rounded-[20px] border border-divider/10 p-10">
+            <div className="rounded-[20px] border border-divider/10 bg-background p-10 text-foreground">
               <div className="flex flex-col gap-y-4 md:flex-row md:justify-between lg:flex-col">
                 <div className="flex grow-0 flex-row items-center gap-4">
                   <Image
@@ -185,27 +199,28 @@ export default function DetailPage({ item, children }: DetailPageProps) {
           <div className="col-span-12 flex grow flex-col gap-y-4 lg:gap-y-10 2xl:col-span-7">
             <Divider />
             <div className="grid grid-cols-2 justify-items-center gap-2 md:flex md:flex-row md:flex-wrap md:gap-4">
-              <DetailPerkCard perk="greatOffer" />
-              <DetailPerkCard perk="outdoorActivity" />
-              <DetailPerkCard perk="perfectAsGift" />
-              <DetailPerkCard perk="ourRecommendation" />
+              {perks.map((perk) => (
+                <DetailsPerkCard key={perk.perk} perk={perk.perk} />
+              ))}
             </div>
             <Divider />
             {contents.map(({ title, body }, index) => (
-              <div
-                key={index + 'mb'}
-                className="flex flex-col space-y-6 rounded-lg border border-divider/10 bg-content2 p-10 text-content2-foreground md:p-10 lg:rounded-[20px]"
-              >
-                <h1 className="text-xl font-bold md:text-5xl">{title}</h1>
+              <FadeInOnScroll key={index + 'dt'}>
                 <div
-                  className="richtext-field whitespace-pre-line text-lg md:text-2xl"
-                  // dangerouslySetInnerHTML={{
-                  //   __html: body,
-                  // }}
+                  key={index + 'mb'}
+                  className="bg-secondary1 text-secondary1-foreground flex flex-col space-y-6 rounded-lg border border-divider/5 p-10 shadow-none transition-transform hover:-translate-y-2 hover:shadow-lg hover:shadow-primary-200 md:p-10 lg:rounded-[20px]"
                 >
-                  <p>{body}</p>
+                  <h1 className="text-md font-bold md:text-xl">{title}</h1>
+                  <div
+                    className="richtext-field whitespace-pre-line text-sm md:text-lg"
+                    // dangerouslySetInnerHTML={{
+                    //   __html: body,
+                    // }}
+                  >
+                    <p>{body}</p>
+                  </div>
                 </div>
-              </div>
+              </FadeInOnScroll>
             ))}
           </div>
         </div>

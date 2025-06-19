@@ -19,7 +19,7 @@ export default function AddDealToCart({ item }: AddDealToCartProps) {
   const { cartContext, updateCartItem } = useCart();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const unlimitedQuantity = maxCustomerQuantity >= 999;
+  // const unlimitedQuantity = maxCustomerQuantity >= 999;
   const [quantity, setQuantity] = useState(1);
   const increment = useCallback(
     () => setQuantity((oldQuantity) => oldQuantity + 1),
@@ -42,10 +42,10 @@ export default function AddDealToCart({ item }: AddDealToCartProps) {
       await updateCartItem(item, existingCartItemQuantity + quantity);
       setIsLoading(true);
       router.push('/cart');
-    } catch (error: any) {
+    } catch {
       toast({
-        title: 'Fehler',
-        description: 'Beim Hinzufügen zum Warenkorb ist ein Fehler aufgetreten',
+        title: 'Error',
+        description: 'An error occurred while adding to the shopping cart',
       });
     } finally {
       setIsLoading(false);

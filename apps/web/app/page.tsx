@@ -3,77 +3,39 @@ import { HeroSliderItem, HeroSliderItemProps } from '@repo/ui/hero-slider-item';
 import HomePageHeroBanner, {
   type HomePageHeroBannerProps,
 } from '@repo/ui/home-page-hero-banner';
-import {
-  heroImages,
-  heroSliderImages,
-  partnerImages,
-} from '@/public/images/images';
+import estateItem1 from '@/app/consts/Items/estate-item-1';
+import estateItem2 from '@/app/consts/Items/estate-item-2';
+import estateItem3 from '@/app/consts/Items/estate-item-3';
+import { mapItemToHomePageHeroBannerProps } from '@/utils/ModelUtils/item-model-to-hero-banner';
+import { mapItemToHeroSliderItemProps } from '@/utils/ModelUtils/item-model-to-hero-slider-item';
 
 export default function Page() {
-  const heroBannerProps: HomePageHeroBannerProps = {
-    properties: {
-      actualPrice: 10,
-      title: 'Hero Banner Title',
-      subtitle: 'Hero Banner Subtitle',
-      regularPrice: 15,
-      partner: {
-        name: 'Partner Name',
-        image: { ...partnerImages.fallback },
-      },
-      srcs: {
-        desktopHeroImage: { ...heroImages.desktop },
-        tabletHeroImage: { ...heroImages.tablet },
-        mobileHeroImage: { ...heroImages.mobile },
-        fallbackHeroImage: { ...heroImages.fallback },
-      },
-    },
-    targetUrl: '/item/item1',
-  };
-
-  const heroSliderProps: HeroSliderItemProps = {
-    properties: {
-      actualPrice: 10,
-      title: 'Hero Slider Title',
-      subtitle: 'Hero Slider Subtitle',
-      regularPrice: 15,
-      partner: {
-        name: 'Partner Name',
-        image: { ...partnerImages.fallback },
-      },
-      srcs: {
-        desktopImage: { ...heroSliderImages.desktop },
-        laptopImage: { ...heroSliderImages.laptop },
-        tabletImage: { ...heroSliderImages.tablet },
-        mobileImage: { ...heroSliderImages.mobile },
-        fallbackImage: { ...heroSliderImages.fallback },
-      },
-    },
-    targetUrl: '/item/item1',
-  };
+  const heroBannerItem: HomePageHeroBannerProps =
+    mapItemToHomePageHeroBannerProps(estateItem1);
+  const heroSliderItems: HeroSliderItemProps[] = [
+    estateItem1,
+    estateItem2,
+    estateItem3,
+  ].map((item) => mapItemToHeroSliderItemProps(item));
 
   return (
     <div className="mx-auto w-full">
       <div className="grid-cols-12">
         <div className="container col-span-full mx-auto mt-10 px-4">
           <HomePageHeroBanner
-            properties={heroBannerProps.properties}
-            targetUrl={heroBannerProps.targetUrl}
+            properties={heroBannerItem.properties}
+            targetUrl={heroBannerItem.targetUrl}
           />
         </div>
         <div className="container col-span-full mx-auto mt-10 px-4">
-          <HeroSlider title="Hero Slider">
-            <HeroSliderItem
-              properties={heroSliderProps.properties}
-              targetUrl={heroBannerProps.targetUrl}
-            ></HeroSliderItem>
-            <HeroSliderItem
-              properties={heroSliderProps.properties}
-              targetUrl={heroBannerProps.targetUrl}
-            ></HeroSliderItem>
-            <HeroSliderItem
-              properties={heroSliderProps.properties}
-              targetUrl={heroBannerProps.targetUrl}
-            ></HeroSliderItem>
+          <HeroSlider title="Highlights">
+            {heroSliderItems.map((item, index) => (
+              <HeroSliderItem
+                key={index}
+                properties={item.properties}
+                targetUrl={item.targetUrl}
+              ></HeroSliderItem>
+            ))}
           </HeroSlider>
         </div>
       </div>

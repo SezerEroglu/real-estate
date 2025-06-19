@@ -29,9 +29,7 @@ export default function HeaderUserSection() {
               className="h-12 w-12 cursor-pointer items-center p-0 lg:h-full lg:w-full lg:p-1"
               data-is-user-button={true}
             >
-              <span className="hidden pl-4 lg:block">
-                Hey {session.data.user.profile.firstName}!
-              </span>
+              <span className="hidden pl-4 lg:block">Hey!</span>
               <div className="flex h-12 w-12 shrink-0 items-center justify-center">
                 <IconProfile className="text-2xl text-secondary" />
               </div>
@@ -56,7 +54,7 @@ export default function HeaderUserSection() {
             Login
           </EstateButton>
         </div>
-        <div className="lg:hidden">
+        <div className="hidden md:block lg:hidden">
           <EstateButton
             as={Link}
             data-is-user-button={true}

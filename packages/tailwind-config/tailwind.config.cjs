@@ -1,84 +1,6 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const { heroui } = require("@heroui/theme");
 
-// Shared color palette
-const realEstateColors = {
-  secondary: {
-    50: "#E6FBED",
-    100: "#C1F4D4",
-    200: "#95EBB5",
-    300: "#66E194",
-    400: "#3DD975",
-    500: "#1DD75B", // your base
-    600: "#1AB24D",
-    700: "#158C3C",
-    800: "#10662B",
-    900: "#0B411B",
-    DEFAULT: "#1DD75B",
-    foreground: "#ffffff",
-  },
-  primary: {
-    50: "#f0f2ff", // very light, almost white
-    100: "#d9defd",
-    200: "#bfc3fb",
-    300: "#a4a8f9",
-    400: "#898def",
-    500: "#636ae8", // base color (your original)
-    600: "#5056c4",
-    700: "#3b429f",
-    800: "#282d7a",
-    900: "#161a54", // very dark shade
-    DEFAULT: "#636ae8",
-    foreground: "#ffffff", // white text on this blue
-  },
-
-  divider: {
-    50: "#e8ecff", // very pale blue
-    100: "#cbd6ff",
-    200: "#a9bbff",
-    300: "#87a0ff",
-    400: "#6686ff",
-    500: "#4d70ff", // brightish blue for focus (brighter than secondary 500)
-    600: "#3f5adf",
-    700: "#3146bf",
-    800: "#24329f",
-    900: "#172080",
-    DEFAULT: "#4d70ff",
-    foreground: "#ffffff", // white text on focus bg
-  },
-  background: "#000000",
-
-  focus: {
-    50: "#e8ecff", // very pale blue
-    100: "#cbd6ff",
-    200: "#a9bbff",
-    300: "#87a0ff",
-    400: "#6686ff",
-    500: "#4d70ff", // brightish blue for focus (brighter than secondary 500)
-    600: "#3f5adf",
-    700: "#3146bf",
-    800: "#24329f",
-    900: "#172080",
-    DEFAULT: "#4d70ff",
-    foreground: "#ffffff", // white text on focus bg
-  },
-
-  success: {
-    50: "#ECFBE5",
-    100: "#D4F5C2",
-    200: "#AEEA8E",
-    300: "#86DB5B",
-    400: "#5ECA2E",
-    500: "#3DB816",
-    600: "#28940D",
-    700: "#1F7409",
-    800: "#165506",
-    900: "#0D3703",
-    foreground: "#ffffff",
-    DEFAULT: "#28940D",
-  },
-};
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -103,7 +25,7 @@ module.exports = {
     extend: {
       // colors: realEstateColors,
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        sans: ["Montserrat", "sans-serif"],
       },
       animation: {
         move: "move 10s ease-in-out infinite",
@@ -233,22 +155,23 @@ module.exports = {
               foreground: "#fff",
               DEFAULT: "#000000",
             },
-            content1: {
-              DEFAULT: "#ffffff",
-              foreground: "#000",
+            primary1: {
+              DEFAULT: "#e1e4f7", // light tint of primary
+              foreground: "#111111", // dark gray text
             },
-            content2: {
-              DEFAULT: "#f4f4f5",
-              foreground: "#000",
+            primary2: {
+              DEFAULT: "#c2c7ef", // darker tint primary bg
+              foreground: "#444444", // medium gray text
             },
-            content3: {
-              DEFAULT: "#e4e4e7",
-              foreground: "#000",
+            secondary1: {
+              DEFAULT: "#fff5e1", // light tint of secondary
+              foreground: "#111111", // dark gray text
             },
-            content4: {
-              DEFAULT: "#d4d4d8",
-              foreground: "#000",
+            secondary2: {
+              DEFAULT: "#f9e0a7", // darker tint secondary bg
+              foreground: "#444444", // medium gray text
             },
+
             focus: "#006FEE",
             overlay: "#000000",
             divider: "#111111",
@@ -355,22 +278,23 @@ module.exports = {
               foreground: "#000",
               DEFAULT: "#ffffff",
             },
-            content1: {
-              DEFAULT: "#18181b",
-              foreground: "#fff",
+            primary1: {
+              DEFAULT: "#222940", // dark shade primary bg
+              foreground: "#eeeeee", // light gray text
             },
-            content2: {
-              DEFAULT: "#27272a",
-              foreground: "#fff",
+            primary2: {
+              DEFAULT: "#1a1f33", // darker shade primary bg
+              foreground: "#bbbbbb", // medium gray text
             },
-            content3: {
-              DEFAULT: "#3f3f46",
-              foreground: "#fff",
+            secondary1: {
+              DEFAULT: "#5a3f18", // lighter dark shade of secondary
+              foreground: "#f5e6a1", // lighter golden-ish text
             },
-            content4: {
-              DEFAULT: "#52525b",
-              foreground: "#fff",
+            secondary2: {
+              DEFAULT: "#7a5721", // even lighter dark secondary bg
+              foreground: "#f8e89e", // very light gold text
             },
+
             focus: "#006FEE",
             overlay: "#ffffff",
             divider: "#ffffff",

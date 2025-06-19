@@ -53,10 +53,11 @@ export function HeroSliderItem({
         <GridItem
           className="bg-default-100"
           properties={properties}
+          targetUrl={targetUrl}
           isInHeroSlider={true}
         />
       </div>
-      <Link href={targetUrl}>
+      <Link href={'/item/' + targetUrl}>
         <div
           className={cn(
             'relative hidden min-h-[600px] w-full flex-row gap-10 overflow-hidden rounded-[40px] bg-default-100 p-10 text-default-foreground lg:flex xl:aspect-[2/1]',
@@ -264,7 +265,7 @@ export function HeroSliderItem({
               <EstateButton
                 variant="solid"
                 color="primary"
-                href={targetUrl}
+                href={'/item/' + targetUrl}
                 size="lg"
                 className="bg-primary px-6 text-2xl font-bold text-primary-foreground"
               >

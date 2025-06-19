@@ -72,7 +72,7 @@ export function GridItem({
       ) {
         e.preventDefault();
       } else {
-        router.push(targetUrl ?? '#');
+        router.push('/item/' + (targetUrl ?? '#'));
       }
     },
     [router, targetUrl],
@@ -85,7 +85,7 @@ export function GridItem({
         className,
       )}
       onClick={handleOnClick}
-      href={targetUrl}
+      href={'/item/' + targetUrl}
     >
       {/* Stripes  */}
       {/* <DealStripe dealState={dealState} location="Grid"></DealStripe> */}
@@ -262,11 +262,11 @@ export function GridItem({
         <EstateButton
           variant="solid"
           color="primary"
-          href={targetUrl}
+          href={'/item/' + targetUrl}
           fullWidth={true}
           endContent={<IconArrowRight className="text-xl" />}
         >
-          {'Jetzt Deal sichern'}
+          View Details
         </EstateButton>
       </div>
     </a>

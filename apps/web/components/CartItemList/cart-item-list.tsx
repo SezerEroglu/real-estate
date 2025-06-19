@@ -3,8 +3,7 @@
 import CartItem from '@/components/CartItem/cart-item';
 import { useCart } from '@/hooks/UseCart/use-cart';
 
-export interface CartItemListProps {}
-export default function CartItemList({}: CartItemListProps) {
+export default function CartItemList() {
   const {
     cartContext: { cart },
   } = useCart();
