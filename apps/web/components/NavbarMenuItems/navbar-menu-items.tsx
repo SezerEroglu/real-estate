@@ -44,20 +44,20 @@ export function NavbarMenuItems({ closeMenu }: NavbarMenuItemsProps) {
             <Divider />
           </>
         ) : ( */}
-        <div className="px-4 pt-8">
+        {/* <div className="px-4 pt-8">
           <EstateButton
             as={Link}
             size="lg"
             variant="solid"
-            href="/auth"
+            href="/my-investments"
             className="w-full"
             endContent={<IconUser className="text-secondary-foreground" />}
             color="secondary"
             onClick={closeMenu}
           >
-            Login
+            My Investments
           </EstateButton>
-        </div>
+        </div> */}
         {/* )} */}
       </div>
 
@@ -70,6 +70,19 @@ export function NavbarMenuItems({ closeMenu }: NavbarMenuItemsProps) {
             <Link href="/" className="text-lg" onClick={closeMenu}>
               Homepage
             </Link>
+          </NavbarMenuItem>
+          <Divider />
+          <NavbarMenuItem className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <IconCart className="text-2xl text-secondary" />
+              <Link
+                href="/my-investments"
+                className="text-lg"
+                onClick={closeMenu}
+              >
+                My Investments
+              </Link>
+            </div>
           </NavbarMenuItem>
           <Divider />
           <NavbarMenuItem className="flex items-center justify-between">
@@ -91,15 +104,15 @@ export function NavbarMenuItems({ closeMenu }: NavbarMenuItemsProps) {
             </Badge>
           </NavbarMenuItem>
           <Divider />
-          <NavbarMenuItem className="flex items-center gap-2">
+          {/* <NavbarMenuItem className="flex items-center gap-2">
             <InfoIcon className="text-secondary" />
             <Link href="/content/faq" className="text-lg" onClick={closeMenu}>
               FAQ
             </Link>
-          </NavbarMenuItem>
+          </NavbarMenuItem> */}
         </div>
       </div>
-      <div className="mb-4 w-full border-b border-secondary/10">
+      {/* <div className="mb-4 w-full border-b border-secondary/10">
         <p className="px-4 py-2 text-xs text-foreground">My Profile</p>
         <Divider />
         <div className="flex flex-col gap-4 p-4">
@@ -128,7 +141,7 @@ export function NavbarMenuItems({ closeMenu }: NavbarMenuItemsProps) {
             </Link>
           </NavbarMenuItem>
         </div>
-      </div>
+      </div> */}
 
       <div>
         {/* {session.status === 'authenticated' && (

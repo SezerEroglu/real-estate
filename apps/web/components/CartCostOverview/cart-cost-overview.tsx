@@ -61,7 +61,7 @@ export default function CartCostOverview() {
         fullWidth={true}
         size="lg"
         as="a"
-        //   href={'/cart/checkout'}
+          href={'/checkout'}
       >
         To Checkout
       </EstateButton>

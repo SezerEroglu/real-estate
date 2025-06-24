@@ -126,7 +126,7 @@ export default function CartItem({ cartItem }: CartItemProps) {
           disabled={isChangingQuantity || isRemovingDeal}
         >
           {isRemovingDeal && <Spinner color="secondary" size="sm" />}
-          <span className="underline">{'Entfernen'}</span>
+          <span className="underline">Remove</span>
         </button>
       </div>
       <div className="col-span-1 hidden justify-end md:col-span-2 md:flex md:flex-row md:gap-4">

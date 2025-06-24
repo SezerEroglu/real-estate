@@ -47,11 +47,11 @@ export default function HeaderUserSection() {
             as={Link}
             size="lg"
             variant="solid"
-            href="/auth"
+            href="/my-investments"
             endContent={<IconUser className="text-2xl" />}
             color="secondary"
           >
-            Login
+            My Investments
           </EstateButton>
         </div>
         <div className="hidden md:block lg:hidden">
@@ -62,7 +62,7 @@ export default function HeaderUserSection() {
             color="secondary"
             isIconOnly={true}
             endContent={<IconUser className="text-2xl" />}
-            href="/auth"
+            href="/my-investments"
             className="h-12 w-12 text-secondary"
           />
         </div>

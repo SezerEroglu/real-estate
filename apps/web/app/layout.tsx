@@ -8,8 +8,8 @@ import ServerProviders from '@/providers/ServerProviders/server-providers';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Amplicade Demo',
-  description: 'Amplicade E-Commerce Demo',
+  title: 'Evo Demo',
+  description: 'Evo Demo',
 };
 
 export default function RootLayout({

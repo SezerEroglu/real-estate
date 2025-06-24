@@ -11,7 +11,7 @@ export default function NewsletterBlock() {
 
         <div />
         <div className="z-20 mt-[65vw] flex items-center justify-center md:mt-[400px] md:p-20 lg:mt-0">
-          <div className="bg-primary2 text-primary2-foreground m-4 w-full rounded-2xl border-divider/20 p-4 md:p-10 lg:rounded-[20px] lg:border">
+          <div className="bg-primary1 text-primary1-foreground m-4 w-full rounded-2xl border-divider/20 p-4 md:p-10 lg:rounded-[20px] lg:border">
             <NewsletterForm />
           </div>
         </div>

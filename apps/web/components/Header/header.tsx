@@ -19,6 +19,7 @@ import HeaderCartSection from '@/components/HeaderCartSection/header-cart-sectio
 import HeaderUserSection from '@/components/HeaderUserSection/header-user-section';
 import { NavbarMenuItems } from '@/components/NavbarMenuItems/navbar-menu-items';
 import AmplicadeLogo from '@/components/svg/AmplicadeLogo/amplicade-logo';
+import EvoLogo from '@/components/svg/EvoLogo/evo-logo';
 import { IconDay } from '@/components/svg/IconDay/icon-day';
 import { IconNight } from '@/components/svg/IconNight/icon-night';
 
@@ -57,7 +58,9 @@ export default function Header() {
     >
       <NavbarContent className="hidden shrink-0 gap-0 lg:flex" justify="center">
         <NavbarBrand as={NextLink} href="/" className="mr-4 h-full shrink-0">
-          <AmplicadeLogo className="h-32 w-32 text-primary" />
+          <div className="overflow-hidden rounded-xl bg-white p-2">
+            <EvoLogo className="h-auto w-24" />
+          </div>
         </NavbarBrand>
         <NavbarItem>
           <EstateButton
@@ -70,7 +73,7 @@ export default function Header() {
             Home
           </EstateButton>
         </NavbarItem>
-        <NavbarItem>
+        {/* <NavbarItem>
           <EstateButton
             as={Link}
             color="foreground"
@@ -80,7 +83,7 @@ export default function Header() {
           >
             FAQ
           </EstateButton>
-        </NavbarItem>
+        </NavbarItem> */}
       </NavbarContent>
 
       <NavbarContent className="hidden shrink-0 gap-4 lg:flex" justify="end">
@@ -109,8 +112,10 @@ export default function Header() {
       >
         <div className="flex w-full items-center gap-2 sm:gap-4">
           <NavbarMenuToggle onClick={toggleMenu} />
-          <NavbarBrand as={NextLink} href="/" className="shrink-0 space-x-4">
-            <AmplicadeLogo className="h-32 w-32 py-4 text-primary" />
+          <NavbarBrand as={NextLink} href="/" className="shrink-0">
+            <div className="overflow-hidden rounded-xl bg-white p-2">
+              <EvoLogo className="h-auto w-24" />
+            </div>
           </NavbarBrand>
           <EstateButton
             //   as={Link}

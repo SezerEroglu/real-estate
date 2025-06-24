@@ -45,7 +45,7 @@ export default function DetailPage({ item, children }: DetailPageProps) {
       <div className="border-b">
         <div className="container mx-auto flex flex-row items-center space-x-2 p-4 text-foreground">
           <Link href="/" className="text-foreground">
-            Start
+            Home
           </Link>
           <ChevronRightSvg />
           <span className="overflow-hidden text-ellipsis whitespace-nowrap font-bold">
@@ -62,7 +62,7 @@ export default function DetailPage({ item, children }: DetailPageProps) {
                   <div
                     key={index}
                     className={cn(
-                      'bg-primary2 relative flex aspect-video h-auto min-h-[160px] w-full items-center justify-center overflow-hidden rounded-[20px] bg-center object-cover backdrop-blur lg:min-h-[480px] lg:rounded-[20px]',
+                      'relative flex aspect-video h-auto min-h-[160px] w-full items-center justify-center overflow-hidden rounded-[20px] bg-primary2 bg-center object-cover backdrop-blur lg:min-h-[480px] lg:rounded-[20px]',
                       activeImageIndex === index && 'border-secondary',
                     )}
                     onClick={() => setActiveImageIndex(index)}
@@ -114,7 +114,7 @@ export default function DetailPage({ item, children }: DetailPageProps) {
               <Divider />
               {contents.map(({ title, body }, index) => (
                 <FadeInOnScroll key={index + 'dt'}>
-                  <div className="bg-secondary1 text-secondary1-foreground flex flex-col space-y-6 rounded-lg border border-divider/5 p-4 shadow-none transition-transform hover:-translate-y-2 hover:shadow-lg hover:shadow-primary-200 md:p-10 lg:rounded-[20px]">
+                  <div className="flex flex-col space-y-6 rounded-lg border border-divider/5 bg-secondary1 p-4 text-secondary1-foreground shadow-none transition-transform hover:-translate-y-2 hover:shadow-lg hover:shadow-secondary-200 md:p-10 lg:rounded-[20px]">
                     <h1 className="text-md font-bold md:text-xl">{title}</h1>
                     <div
                       className="richtext-field whitespace-pre-line text-sm md:text-lg"
@@ -130,7 +130,7 @@ export default function DetailPage({ item, children }: DetailPageProps) {
             </div>
           </div>
           <div className="col-span-12 flex h-min flex-col gap-4 lg:sticky lg:right-0 lg:top-36 2xl:col-span-5">
-            <div className="bg-primary2 text-primary2-foreground flex grow flex-col gap-y-6 rounded-[20px] border border-divider/10 p-10">
+            <div className="flex grow flex-col gap-y-6 rounded-[20px] border border-divider/10 bg-primary2 p-10 text-primary2-foreground">
               <div className="flex flex-row items-center justify-between gap-6">
                 <h1 className="text-xl font-bold md:text-2xl">{title}</h1>
                 <div className="hidden md:block">
@@ -208,7 +208,7 @@ export default function DetailPage({ item, children }: DetailPageProps) {
               <FadeInOnScroll key={index + 'dt'}>
                 <div
                   key={index + 'mb'}
-                  className="bg-secondary1 text-secondary1-foreground flex flex-col space-y-6 rounded-lg border border-divider/5 p-10 shadow-none transition-transform hover:-translate-y-2 hover:shadow-lg hover:shadow-primary-200 md:p-10 lg:rounded-[20px]"
+                  className="flex flex-col space-y-6 rounded-lg border border-divider/5 bg-secondary1 p-10 text-secondary1-foreground shadow-none transition-transform hover:-translate-y-2 hover:shadow-lg hover:shadow-secondary-200 md:p-10 lg:rounded-[20px]"
                 >
                   <h1 className="text-md font-bold md:text-xl">{title}</h1>
                   <div
